@@ -59,8 +59,10 @@ prop.table(table(dados$Attrition,dados$Gender)) #Tabela cruzada, Da a proporçao
 AttGen <- table(dados$Attrition,dados$Gender)
 propG <- c()#Proporção de pedido de demissão por genero
 for(i in 1:2){
-  propG[i] =  AttGen[]
+  propG[i] =  AttGen[2,i]/( AttGen[1,i]+  AttGen[2,i])
 }
+
+### A propoçao de demissões por gênero é maior para os homens, isso mostra que homens pediram mais demissões do que as mulheres.
 
 ggplot(dados) +
   geom_bar( aes(x=Gender, y=Attrition), stat="identity", fill="skyblue", alpha=0.7)+
@@ -70,3 +72,8 @@ ggplot(dados) +
 
 ggplot(dados) +
   geom_bar( aes(x=EducationField, y=Attrition), stat="identity", fill="skyblue", alpha=0.7)
+
+
+
+ggplot(dados) +
+  geom_bar( aes(x=Age, y=Attrition), stat="identity", fill="skyblue", alpha=0.7)
