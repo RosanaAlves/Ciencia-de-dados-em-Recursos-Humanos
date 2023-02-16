@@ -68,12 +68,22 @@ ggplot(dados) +
   geom_bar( aes(x=Gender, y=Attrition), stat="identity", fill="skyblue", alpha=0.7)+
   labs(title = "Pedidos de demissão por Gênero")
 
+ggplot(dados) +
+  geom_bar( aes(x=DistanceFromHome, y=Attrition), stat="identity", fill="skyblue", alpha=0.7)+
+  labs(title = "Pedidos de demissão por Distancia da casa")
+prop.table(table(dados$Attrition,dados$DistanceFromHome))
 
+### O numero de funcionários que moram perto da emprsa é maior do que os demais, por isso faz sentido ter mais pedidos de demissão de pessoas que moram proximas a empresa.
 
 ggplot(dados) +
   geom_bar( aes(x=EducationField, y=Attrition), stat="identity", fill="skyblue", alpha=0.7)
 
+## Renda mensal média por educação e attrition
 
+### ‘compare average monthly income by education and attrition’
+
+table(dados$MonthlyIncome,dados$Education)
+plot(dados$Attrition,dados$MonthlyIncome)
 
 ggplot(dados) +
-  geom_bar( aes(x=Age, y=Attrition), stat="identity", fill="skyblue", alpha=0.7)
+  geom_bar( aes(x=Attrition, y=MonthlyIncome), stat="identity", fill="skyblue", alpha=0.7)
