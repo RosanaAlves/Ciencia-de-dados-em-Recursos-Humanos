@@ -15,7 +15,7 @@ dados <- read.csv("Data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
 
 # Analise exploratoria ----------------------------------------------------
 
-## variavel de interesse é Atrition (saída do funcionário)
+## variavel de interesse é Atrition (Desgaste) (possivel saída do funcionário)
 
 summary(dados)
 
@@ -33,7 +33,7 @@ for(i in 1:3){
   SpD[i] = (DepY[i]/Dep[i])*100
 }
 
-## O departamento que tem mais pedidos de demissão é o de vendas (Sales), seguido pelo recursos humanos e por fim pesquisa e desenvolvimento.
+## O departamento que tem mais Desgaste é o de vendas (Sales), seguido pelo recursos humanos e por fim pesquisa e desenvolvimento.
 
 # -------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ dados$Attrition <- AttritionDummy
 
 prop.table(table(dados$Attrition,dados$Gender)) #Tabela cruzada, Da a proporçao de cada variavel em cada categoria em relaçao ao total
 AttGen <- table(dados$Attrition,dados$Gender)
-propG <- c()#Proporção de pedido de demissão por genero
+propG <- c()#Proporção de Desgaste por genero
 for(i in 1:2){
   propG[i] =  AttGen[2,i]/( AttGen[1,i]+  AttGen[2,i])
 }
@@ -66,11 +66,11 @@ for(i in 1:2){
 
 ggplot(dados) +
   geom_bar( aes(x=Gender, y=Attrition), stat="identity", fill="skyblue", alpha=0.7)+
-  labs(title = "Pedidos de demissão por Gênero")
+  labs(title = "Desgaste por Gênero")
 
 ggplot(dados) +
   geom_bar( aes(x=DistanceFromHome, y=Attrition), stat="identity", fill="skyblue", alpha=0.7)+
-  labs(title = "Pedidos de demissão por Distancia da casa")
+  labs(title = "Desgaste por Distancia da casa")
 prop.table(table(dados$Attrition,dados$DistanceFromHome))
 
 ### O numero de funcionários que moram perto da emprsa é maior do que os demais, por isso faz sentido ter mais pedidos de demissão de pessoas que moram proximas a empresa.
