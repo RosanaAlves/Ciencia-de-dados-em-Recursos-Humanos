@@ -87,3 +87,13 @@ plot(dados$Attrition,dados$MonthlyIncome)
 
 ggplot(dados) +
   geom_bar( aes(x=Attrition, y=MonthlyIncome), stat="identity", fill="skyblue", alpha=0.7)
+
+# Testes ------------------------------------------------------------------
+
+varnun <- select_if (dados, is.numeric) #selecionado variaveis numericas do data.frame
+pairs(varnun)
+hist(varnun)
+
+## Excluindoo colunas desnecessárias
+
+
