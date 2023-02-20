@@ -95,5 +95,5 @@ pairs(varnun)
 hist(varnun)
 
 ## Excluindoo colunas desnecessárias
-
+dados[,'EmployeeCount']
 
