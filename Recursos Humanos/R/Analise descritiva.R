@@ -100,3 +100,14 @@ attach(dados)
 colunas <- c('EmployeeCount','StandardHours','Over18','EmployeeNumber')
 # dados <- subset(dados, select = - c('EmployeeCount','StandardHours','Over18','EmployeeNumber'))
 dados <- dados[, !names(dados)%in% colunas]
+
+
+# Criando dois data.frames ------------------------------------------------
+
+sairam <- dados%>%filter(Attrition == 1)
+summary(sairam)
+ficaram <- dados%>%filter(Attrition == 0)
+summary(ficaram)
+# -------------------------------------------------------------------------
+
+
