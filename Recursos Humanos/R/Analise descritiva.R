@@ -110,4 +110,5 @@ ficaram <- dados%>%filter(Attrition == 0)
 summary(ficaram)
 # -------------------------------------------------------------------------
 
+plot(dados$MonthlyIncome,dados$Gender)
 
